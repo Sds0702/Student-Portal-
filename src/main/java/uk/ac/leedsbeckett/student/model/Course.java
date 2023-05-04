@@ -2,10 +2,8 @@ package uk.ac.leedsbeckett.student.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -16,5 +14,7 @@ public class Course {
     private String title;
     private String description;
     private Double fee;
+    @ManyToMany(mappedBy = "coursesEnrolledIn")
+    Set<Student> studentEnrolledInCourse;
 }
 
